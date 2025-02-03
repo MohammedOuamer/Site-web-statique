@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>World Cup 2030 -Morocco-</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            position: relative;
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.6) !important;
+        }
+        .back-to-top:target, html:has(:target) .back-to-top {
+            opacity: 1;
+        }
+        .navbar .container-fluid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-svg {
+            width: 55px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand:hover .logo-svg {
+            content: url('host_logo_semicolor.svg');
+        }
+        .navbar-brand {
+            margin-left: 7rem; 
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            color: #fff !important;
+        }
+
+        .navbar-nav .nav-item .nav-link.active {
+            color: #ffc107 !important;
+        }
+
+        .profile-icon {
+            margin-right: 6rem;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .profile-icon:hover {
+            color: #fff;
+        }
+
+        .hero-section {
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            position: relative;
+        }
+
+        .hero-section .d-flex {
+            z-index: 2;
+        }
+
+        .hero-section .d-flex p {
+            font-size: .7rem;
+            color: #fff;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .card {
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .more-cities {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        #moreCities:checked + .more-cities {
+            display: flex;
+            opacity: 1;
+        }
+        
+        #moreCities:checked + .more-cities + .toggle-label::after {
+            content: " ...Less";
+        }
+
+        #moreCities:not(:checked) + .more-cities + .toggle-label::after {
+            content: " More...";
+        }
+
+        .toggle-label {
+            display: block;
+            text-align: center;
+            cursor: pointer;
+            color: blue;
+            margin-top: 10px;
+        }
+
+        .ticket-btn-1 {
+            background: linear-gradient(135deg, #F1C232, #AA151B);
+            color: white;
+            padding: 15px 30px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: none;
+            transition: background 0.3s ease;
+        }
+
+        .ticket-btn-2 {
+            background: linear-gradient(135deg, #C8102E, #006847);
+            color: white;
+            padding: 15px 30px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: none;
+            transition: background 0.3s ease;
+        }
+
+        .ticket-btn-3 {
+            background: linear-gradient(135deg, #006847, #FFB916);
+            color: white;
+            padding: 15px 30px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: none;
+            transition: background 0.3s ease;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 2rem;
+            text-decoration: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .back-to-top i {
+            font-size: 2rem;
+            color: black;
+        }
+        #top {
+            position: absolute;
+            top: 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 767px) {
+            .navbar-nav {
+                position: static;
+                transform: none;
+            }
+
+            .profile-icon {
+                margin-right: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<a id="top"></a>
+<div class="hero-section text-center text-white " style="background-image: url('morocco.jpeg');">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
+        <a href="#" class="navbar-brand">
+            <img src="host_logo_white.svg" class="logo-svg" alt="Logo">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#cities">Cities</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tickets">Tickets</a></li>
+            </ul>
+        </div>
+        <div class="profile-icon">
+            <i class="bi bi-person"></i>
+        </div>
+    </div>
+</nav>
+
+<section>
+    <div class="overlay"></div>
+    <div class="d-flex justify-content-center align-items-center h-100 position-relative">
+        <div>
+            <h1 class="display-3">FIFA World Cup 2030</h1>
+            <p class="lead">The FIFA World Cup 2030 will be held in Morocco, marking the first time country hosts this prestigious tournament. With 48 teams from around the world. Morocco will provide world-class facilities for both players and fans</p>
+        </div>
+    </div>
+</section>
+</div>
+<section id="cities" class="container my-5">
+    <h2 class="text-center mb-4">Host Cities</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="casa_wc.jpg" class="card-img-top" alt="Casablanca">
+                <div class="card-body">
+                    <h5 class="card-title">Casablanca</h5>
+                    <p class="card-text">The largest city in Morocco, known for its modern architecture and vibrant culture.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="marrakech.jpeg" class="card-img-top" alt="Marrakech">
+                <div class="card-body">
+                    <h5 class="card-title">Marrakech</h5>
+                    <p class="card-text">A city known for its historical significance, vibrant souks, and beautiful gardens.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="rabat_wc.webp" class="card-img-top" alt="Rabat">
+                <div class="card-body">
+                    <h5 class="card-title">Rabat</h5>
+                    <p class="card-text">The capital of Morocco, offering a blend of tradition and modernity along the Atlantic coast.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="checkbox" id="moreCities" class="d-none">
+    <div class="more-cities row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="fez_wc.jpg" class="card-img-top" alt="Fez">
+                <div class="card-body">
+                    <h5 class="card-title">Fez</h5>
+                    <p class="card-text">A city known for its medieval architecture and as a center of Islamic culture.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="tangier.jpeg" class="card-img-top" alt="Tangier">
+                <div class="card-body">
+                    <h5 class="card-title">Tangier</h5>
+                    <p class="card-text">A city located on the Mediterranean coast, known for its unique blend of cultures.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="agadir.jpg" class="card-img-top" alt="Agadir">
+                <div class="card-body">
+                    <h5 class="card-title">Agadir</h5>
+                    <p class="card-text">Famous for its beaches and warm climate.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <label for="moreCities" class="toggle-label"></label>
+</section>
+
+<section id="tickets" class="container my-5">
+    <h2 class="text-center mb-4">Ticket Information</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Standard Ticket</h5>
+                    <p class="card-text">Get access to regular matches and enjoy the atmosphere of the World Cup.</p>
+                    <a href="exam_login.html" class="btn ticket-btn-1">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">VIP Ticket</h5>
+                    <p class="card-text">Experience the tournament like never before with VIP access and exclusive benefits.</p>
+                    <a href="exam_login.html" class="btn ticket-btn-2">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Stadium Tour</h5>
+                    <p class="card-text">Take a guided tour of the World Cup stadiums and see where history will be made.</p>
+                    <a href="exam_login.html" class="btn ticket-btn-3">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-dark text-white text-center py-4">
+    <p>&copy; 2025 World Cup 2030 | All Rights Reserved</p>
+</footer>
+<a href="#top" class="back-to-top" id="backToTop">
+    <i class="bi bi-arrow-up-circle-fill"></i>
+</a>
+</body>
+</html>
